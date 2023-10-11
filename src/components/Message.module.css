@@ -1,0 +1,14 @@
+.message {
+    position:absolute;
+    top:40vh;
+    font-size: 10vw;
+    font-weight: bold;
+    color: #1b90cd;
+    text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+    .message {
+        font-size: 6rem;
+    }
+}
