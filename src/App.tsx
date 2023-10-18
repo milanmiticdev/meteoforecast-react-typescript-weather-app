@@ -8,7 +8,7 @@ import type { CityType } from './types/types.ts';
 import type { WeatherType } from './types/types.ts';
 
 // Custom Hook
-import useLocalStorage from './hooks/useLocalStorage.tsx';
+import useLocalStorage from './hooks/useLocalStorage.ts';
 
 // Components
 import Wrapper from './components/Wrapper.tsx';
