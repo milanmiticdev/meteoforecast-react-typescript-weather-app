@@ -1,9 +1,18 @@
+// Hooks
 import { useContext } from 'react';
+
+// Context
 import AppContext from '../contexts/AppContext.ts';
+
+// Components
 import WeatherCard from './WeatherCard.tsx';
-import styles from './Today.module.css';
+
+// Types
 import type { TodayProps } from '../types/props.ts';
 import type { DateType } from '../types/types.ts';
+
+// Styles
+import styles from './Today.module.css';
 
 const Today = ({ storedCity }: TodayProps): JSX.Element => {
 	const { weather } = useContext(AppContext);

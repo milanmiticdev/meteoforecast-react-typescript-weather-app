@@ -1,3 +1,7 @@
+// Types
+import type { WeatherIconProps } from '../types/props.ts';
+
+// FontAwesome Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun } from '@fortawesome/free-solid-svg-icons';
 import { faCloudSun } from '@fortawesome/free-solid-svg-icons';
@@ -8,7 +12,6 @@ import { faCloudRain } from '@fortawesome/free-solid-svg-icons';
 import { faCloudShowersHeavy } from '@fortawesome/free-solid-svg-icons';
 import { faCloudBolt } from '@fortawesome/free-solid-svg-icons';
 import { faSnowflake } from '@fortawesome/free-solid-svg-icons';
-import type { WeatherIconProps } from '../types/props.ts';
 
 const WeatherIcon = ({ weathercode, iconStyles }: WeatherIconProps): JSX.Element => {
 	return (
@@ -35,14 +38,9 @@ const WeatherIcon = ({ weathercode, iconStyles }: WeatherIconProps): JSX.Element
 				weathercode === 63 ||
 				weathercode === 65 ||
 				weathercode === 66 ||
-				weathercode === 67) && (
-				<FontAwesomeIcon icon={faCloudRain} className={iconStyles.icon} />
-			)}
+				weathercode === 67) && <FontAwesomeIcon icon={faCloudRain} className={iconStyles.icon} />}
 
-			{(weathercode === 71 ||
-				weathercode === 73 ||
-				weathercode === 75 ||
-				weathercode === 77) && (
+			{(weathercode === 71 || weathercode === 73 || weathercode === 75 || weathercode === 77) && (
 				<FontAwesomeIcon icon={faSnowflake} className={iconStyles.icon} />
 			)}
 
@@ -50,9 +48,7 @@ const WeatherIcon = ({ weathercode, iconStyles }: WeatherIconProps): JSX.Element
 				weathercode === 81 ||
 				weathercode === 82 ||
 				weathercode === 85 ||
-				weathercode === 86) && (
-				<FontAwesomeIcon icon={faCloudShowersHeavy} className={iconStyles.icon} />
-			)}
+				weathercode === 86) && <FontAwesomeIcon icon={faCloudShowersHeavy} className={iconStyles.icon} />}
 
 			{(weathercode === 95 || weathercode === 96 || weathercode === 99) && (
 				<FontAwesomeIcon icon={faCloudBolt} className={iconStyles.icon} />

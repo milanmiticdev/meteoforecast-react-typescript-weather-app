@@ -1,13 +1,5 @@
+// Hooks
 import { useEffect, useReducer } from 'react';
-import AppContext from './contexts/AppContext.ts';
-
-// Types
-import type { ReducerStateType } from './types/types.ts';
-import type { ReducerActionType } from './types/types.ts';
-import type { CityType } from './types/types.ts';
-import type { WeatherType } from './types/types.ts';
-
-// Custom Hook
 import useLocalStorage from './hooks/useLocalStorage.ts';
 
 // Components
@@ -17,6 +9,15 @@ import Dropdown from './components/Dropdown.tsx';
 import Message from './components/Message.tsx';
 import Today from './components/Today.tsx';
 import Forecast from './components/Forecast.tsx';
+
+// Context
+import AppContext from './contexts/AppContext.ts';
+
+// Types
+import type { ReducerStateType } from './types/types.ts';
+import type { ReducerActionType } from './types/types.ts';
+import type { CityType } from './types/types.ts';
+import type { WeatherType } from './types/types.ts';
 
 const initialState: ReducerStateType = {
 	input: '',
@@ -51,10 +52,7 @@ const reducer = (state: ReducerStateType, action: ReducerActionType): ReducerSta
 };
 
 const App = (): JSX.Element => {
-	const [storedCity, setStoredCity] = useLocalStorage<CityType>(
-		'react-weather.city',
-		{} as CityType
-	);
+	const [storedCity, setStoredCity] = useLocalStorage<CityType>('react-weather.city', {} as CityType);
 
 	const [state, dispatch] = useReducer(reducer, initialState);
 
@@ -153,17 +151,15 @@ const App = (): JSX.Element => {
 				<Search />
 
 				{/* Displaying dropdown while user is typing */}
-				{!state.error && state.typing === true && state.cities !== undefined && (
-					<Dropdown />
-				)}
+				{!state.error && state.typing === true && state.cities !== undefined && <Dropdown />}
 
 				{/* Displaying loading message */}
 				{state.loading && <Message />}
 
 				{/* Displaying error message */}
-				{!state.loading &&
-					state.error &&
-					(state.input.length > 0 || Object.keys(storedCity).length > 0) && <Message />}
+				{!state.loading && state.error && (state.input.length > 0 || Object.keys(storedCity).length > 0) && (
+					<Message />
+				)}
 
 				{/* Displaying weather info */}
 				{!state.loading && !state.error && Object.keys(state.weather).length > 0 && (

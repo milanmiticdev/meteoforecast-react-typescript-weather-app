@@ -1,7 +1,14 @@
+// Hooks
 import { useContext } from 'react';
+
+// Context
 import AppContext from '../contexts/AppContext.js';
-import styles from './Dropdown.module.css';
+
+// Types
 import type { CityType } from '../types/types.ts';
+
+// Styles
+import styles from './Dropdown.module.css';
 
 const Dropdown = (): JSX.Element => {
 	const { dispatch, cities, onCitySelect } = useContext(AppContext);

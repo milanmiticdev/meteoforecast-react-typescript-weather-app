@@ -1,7 +1,14 @@
+// Hooks
 import { useState, useEffect } from 'react';
+
+// Components
 import WeatherIcon from './WeatherIcon.tsx';
-import styles from './WeatherCard.module.css';
+
+// Types
 import type { WeatherCardProps } from '../types/props.ts';
+
+// Styles
+import styles from './WeatherCard.module.css';
 
 const WeatherCard = ({
 	storedCity,
@@ -35,9 +42,7 @@ const WeatherCard = ({
 		<div className={`${styles.card} ${addedStyles.card}`}>
 			<p>{`${date.day}.${date.month}.${date.year}`}</p>
 			<div className={styles.header}>
-				<h2
-					className={`${styles.heading} ${addedStyles.heading}`}
-				>{`${storedCity.name.toUpperCase()}`}</h2>
+				<h2 className={`${styles.heading} ${addedStyles.heading}`}>{`${storedCity.name.toUpperCase()}`}</h2>
 				<p>{`${storedCity.country}`}</p>
 			</div>
 			<div className={`${styles.main} ${addedStyles.main}`}>

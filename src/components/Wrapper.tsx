@@ -1,3 +1,4 @@
+// Types
 import type { WrapperProps } from '../types/props.ts';
 
 const Wrapper = ({ children }: WrapperProps): JSX.Element => {

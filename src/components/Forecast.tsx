@@ -1,9 +1,18 @@
+// Hooks
 import { useContext } from 'react';
+
+// Context
 import AppContext from '../contexts/AppContext.js';
+
+// Components
 import WeatherCard from './WeatherCard.js';
-import styles from './Forecast.module.css';
+
+// Types
 import type { ForecastProps } from '../types/props.ts';
 import type { DateType } from '../types/types.ts';
+
+// Styles
+import styles from './Forecast.module.css';
 
 const Forecast = ({ storedCity }: ForecastProps): JSX.Element => {
 	const { weather } = useContext(AppContext);
