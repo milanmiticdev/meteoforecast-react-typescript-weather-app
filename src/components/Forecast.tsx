@@ -9,38 +9,31 @@ const Forecast = ({ storedCity }: ForecastProps): JSX.Element => {
 	const { weather } = useContext(AppContext);
 
 	// Max Temperatures for the next 6 days
-	const maxTemperatures: number[] = weather.daily.temperature_2m_max.filter(
-		(temperature: number, index: number): boolean =>
-			typeof temperature === 'number' && index !== 0
+	const maxTemperatures: number[] = weather.daily.temperature_2m_max.slice(
+		1,
+		weather.daily.temperature_2m_max.length
 	);
 
 	// Min Temperatures for the next 6 days
-	const minTemperatures: number[] = weather.daily.temperature_2m_min.filter(
-		(temperature: number, index: number): boolean =>
-			typeof temperature === 'number' && index !== 0
+	const minTemperatures: number[] = weather.daily.temperature_2m_min.slice(
+		1,
+		weather.daily.temperature_2m_min.length
 	);
 
 	// Dates for the next 6 days
-	const dates: DateType[] = weather.daily.time
-		.filter((date: string, index: number): boolean => typeof date === 'string' && index !== 0)
-		.map((date: string): DateType => {
-			return {
-				day: new Date(date).getDate(),
-				month: new Date(date).getMonth() + 1,
-				year: new Date(date).getFullYear(),
-			};
-		});
+	const dates: DateType[] = weather.daily.time.slice(1, weather.daily.time.length).map((date: string): DateType => {
+		return {
+			day: new Date(date).getDate(),
+			month: new Date(date).getMonth() + 1,
+			year: new Date(date).getFullYear(),
+		};
+	});
 
 	// UV Indexes for the next 6 days
-	const uvIndexes: number[] = weather.daily.uv_index_max.filter(
-		(uvIndex: number, index: number): boolean => typeof uvIndex === 'number' && index !== 0
-	);
+	const uvIndexes: number[] = weather.daily.uv_index_max.slice(1, weather.daily.uv_index_max.length);
 
 	// Weathercodes for the next 6 days
-	const weathercodes: number[] = weather.daily.weathercode.filter(
-		(weathercode: number, index: number): boolean =>
-			typeof weathercode === 'number' && index !== 0
-	);
+	const weathercodes: number[] = weather.daily.weathercode.slice(1, weather.daily.weathercode.length);
 
 	return (
 		<section className={styles.forecast}>
