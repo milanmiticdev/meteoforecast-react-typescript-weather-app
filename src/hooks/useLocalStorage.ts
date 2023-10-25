@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 // Types
 import type { UseLocalStorageType } from '../types/types.ts';
 
-export const useLocalStorage = <T>(key: string, initialValue: T): UseLocalStorageType<T> => {
+const useLocalStorage = <T>(key: string, initialValue: T): UseLocalStorageType<T> => {
 	const [value, setValue] = useState<T>((): T => {
 		const storedValue: string | null = window.localStorage.getItem(key);
 		if (storedValue) {
@@ -25,3 +25,5 @@ export const useLocalStorage = <T>(key: string, initialValue: T): UseLocalStorag
 
 	return [value, setValue];
 };
+
+export default useLocalStorage;
