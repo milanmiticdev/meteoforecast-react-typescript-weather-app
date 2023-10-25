@@ -1,6 +1,6 @@
 // Hooks
 import { useEffect, useReducer } from 'react';
-import useLocalStorage from './hooks/useLocalStorage.ts';
+import { useLocalStorage } from './hooks/useLocalStorage.ts';
 
 // Components
 import Wrapper from './components/Wrapper.tsx';
